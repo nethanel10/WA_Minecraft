@@ -74,7 +74,8 @@ const breakRules = {
 //*Functions
 let map = [...initialMap]
 let inventory = [...initialInventory]
-var selectedTool = 0
+let selectedTool = 0
+let blocksCounter = [0,0,0,0,0,0,0,0,1,1,1]
 //*function that build the game map 
 const updateGame = () => {
     console.log("updateGame")   
@@ -99,10 +100,13 @@ const updateGame = () => {
         } 
         const newItem = document.createElement('div')
         newItem.classList.add(...classes)
+        const newSmall = document.createElement('small')
+        newSmall.innerHTML = blocksCounter[item] || ""
+        newItem.appendChild(newSmall)
         if(item !== 0)newItem.onclick = () => {
             selectItem(index)
         }
-        inventorySelector.appendChild(newItem)
+        if(blocksCounter[item] !== 0) inventorySelector.appendChild(newItem)
     })
 }
 
@@ -120,8 +124,11 @@ const breakBlock = (index) => {
     if(breakRules[inventory[selectedTool]] && breakRules[inventory[selectedTool]].includes(map[index])) {
         //push to inventory
         pushToInventory(map[index])
+        //update counter
+        blocksCounter[map[index]] = blocksCounter[map[index]] + 1
         //break
         map[index] = 0;
+        
         //update game
         updateGame()
     }
@@ -138,15 +145,18 @@ const pushToInventory = (item) => {
 }
 //*function tnat put block in the null block 
 const putBlock = (item, index) => {
-    if(map[index] === 0) map[index] = inventory[selectedTool]
-    updateGame()
-    console.log(item)
+    if(map[index] === 0) {
+        map[index] = inventory[selectedTool]
+        blocksCounter[inventory[selectedTool]] = blocksCounter[inventory[selectedTool]] - 1
+        updateGame()
+    }
 }
 //*function that reset game
 const resetGame = () => {
     map = initialMap
     inventory = initialInventory
     selectedTool = 0
+    let blocksCounter = [0,0,0,0,0,0,0,0,1,1,1]
     updateGame()
 }
 

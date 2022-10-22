@@ -1,7 +1,14 @@
+@import url('http://fonts.cdnfonts.com/css/minecraft-4');
+
 :root {
     --block-size: 3vw;
 }
+body {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDhZgp2bkMecxEI0GQ9ff5Zo9ahj4ubRRXftQbOIFeZFWc7mt59RQRBVS3qjaEg-ypOnE&usqp=CAU");
+    background-size: cover;
+    background-repeat: no-repeat;
 
+}   
 *{
     padding:0 ;
     margin: 0;
@@ -12,11 +19,28 @@
     flex-direction: column ;
     width: 100vw;
     height: 100vh;
-    background-color: lightblue;
+    color: rgb(209, 209, 209);
     text-align: center;
     align-items: center;
-    justify-content: center;
+    background-image: url("https://m.media-amazon.com/images/I/512dVKB22QL.png");
+    background-size: cover;
+    font-size: 5rem;
+    font-family: 'Minecraft', sans-serif;
 
+}
+#intro button {
+    background-color: gray;
+    color: rgba(255, 255, 255, 0.847);
+    outline: 2px solid black;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    width: 50%;
+    font-size: 1.3rem;
+    margin-top: 5rem;
+    cursor: pointer;
+}
+
+#intro button:hover {
+    background-color: rgb(99, 99, 99);
 }
 #startGame{
     width: 80px;
@@ -81,6 +105,7 @@
 .item {
     outline: 1px solid rgb(167, 167, 167);
     cursor: pointer;
+    
 }
 
 .item:hover {
@@ -116,3 +141,20 @@
     grid-template-columns: repeat(2, var(--block-size));
 }
 
+small {
+    color: white;
+    font-weight: 500;
+    padding: 0.2rem;
+}
+
+.sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#reset-btn {
+    width: 100%;
+    max-width: 100px;
+}
