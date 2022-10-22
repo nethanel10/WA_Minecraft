@@ -1,0 +1,118 @@
+:root {
+    --block-size: 3vw;
+}
+
+*{
+    padding:0 ;
+    margin: 0;
+}
+/* intro/open screen */
+#intro {
+    display: flex ;
+    flex-direction: column ;
+    width: 100vw;
+    height: 100vh;
+    background-color: lightblue;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+}
+#startGame{
+    width: 80px;
+    height: 60px;
+}
+/* game */
+#container{
+    display: none;
+    width:100vw ;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+#gameBoard{
+    width: calc(24*var(--block-size));
+    height: calc(13*var(--block-size));
+    background-color: rgb(151, 224, 255);
+    display: grid;
+    grid-template-rows: repeat(13, var(--block-size));
+    grid-template-columns: repeat(24, var(--block-size));
+
+}
+
+/* Game blocks */
+
+.slot:hover {
+    outline: 2px solid rgba(167, 167, 167, 0.491);
+    border-radius: 0.2rem;
+}
+
+.block-dirt {
+    background-image: url("./images/dirt.png");
+    background-size: cover;
+}
+.block-grass {
+    background-image: url("./images/grass.png");
+    background-size: cover;
+}
+
+.block-wood {
+    background-image: url("./images/tree.png");
+    background-size: cover;
+}
+
+.block-leaves {
+    background-image: url("./images/leaves.png");
+    background-size: cover;
+}
+
+.block-cobblestone {
+    background-image: url("./images/cobblestone.png");
+    background-size: cover;
+}
+
+
+.block-cloud {
+    background-image: url("./images/cloud.png");  
+    background-size: cover;
+}
+
+.item {
+    outline: 1px solid rgb(167, 167, 167);
+    cursor: pointer;
+}
+
+.item:hover {
+    outline: 3px solid rgba(167, 167, 167, 0.491);
+}
+
+.item-selected {
+    border: 4px solid rgba(117, 117, 117, 0.648);
+}
+
+.item-axe {
+    background-image: url("./images/axe.png");  
+    background-size: cover;
+}
+
+.item-shovel {
+    background-image: url("./images/shovel.png");  
+    background-size: cover;
+}
+
+.item-pickaxe {
+    background-image: url("./images/pickaxe.png");  
+    background-size: cover;
+}
+
+/* inventory */
+.inventory {
+    display: grid;
+    width: calc(2*var(--block-size));
+    height: calc(5*var(--block-size));
+    background-color: rgb(216, 216, 216);
+    grid-template-rows: repeat(5, var(--block-size));
+    grid-template-columns: repeat(2, var(--block-size));
+}
+
